@@ -1,0 +1,18 @@
+.register-container {
+  margin: 10% auto 0 auto;
+  max-width: 600px;
+  height: fit-content;
+  border: 1px solid black;
+
+  form {
+    padding: 20px;
+  }
+  form > * {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.btn-register {
+  margin: 10px 10px 10px 0;
+}
