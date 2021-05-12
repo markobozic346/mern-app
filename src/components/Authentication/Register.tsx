@@ -22,7 +22,7 @@ const Register = (props: Props) => {
                 <label>confirm password:
                     <input type="password" name='confirm-password' placeholder='enter password' />
                 </label>
-                <input className='btn-register' type="submit" value='Register' />
+                <input className='btn-submit' type="submit" value='Register' />
             </form>
         </div>
     )

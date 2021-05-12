@@ -1,0 +1,6 @@
+@import "../../sassStyles/mixins.scss";
+
+.login-container {
+  @include form-container;
+  border: 1px solid black;
+}
