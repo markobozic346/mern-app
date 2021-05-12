@@ -1,0 +1,13 @@
+@mixin form-container {
+  margin: 10% auto 0 auto;
+  max-width: 600px;
+  height: fit-content;
+
+  form {
+    padding: 20px;
+  }
+  form > * {
+    display: flex;
+    flex-direction: column;
+  }
+}

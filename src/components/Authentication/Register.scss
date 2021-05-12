@@ -1,16 +1,8 @@
-.register-container {
-  margin: 10% auto 0 auto;
-  max-width: 600px;
-  height: fit-content;
-  border: 1px solid black;
+@import '../../sassStyles/mixins.scss';
 
-  form {
-    padding: 20px;
-  }
-  form > * {
-    display: flex;
-    flex-direction: column;
-  }
+.register-container {
+  @include form-container;
+  border: 1px solid black;
 }
 
 .btn-register {
