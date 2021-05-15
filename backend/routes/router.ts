@@ -1,5 +1,6 @@
 import express from "express";
 import mongooseModel from "../models/signUpModels";
+import bcrypt from "bcrypt";
 
 const router = express.Router();
 
@@ -9,11 +10,15 @@ type UserData = {
   password: string;
 };
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
+  //hashing password
+  const saltPassword = await bcrypt.genSalt(10);
+  const securedPassword = await bcrypt.hash(req.body.password, saltPassword);
+  //creating table model
   const signupUser = new mongooseModel({
     email: req.body.email,
     username: req.body.username,
-    password: req.body.password,
+    password: securedPassword,
   });
 
   signupUser
