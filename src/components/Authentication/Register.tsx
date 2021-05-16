@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { FormEventHandler, useState } from 'react'
 import './Register.scss'
-
+import axios from 'axios'
 interface Props {
 
 }
@@ -19,11 +19,18 @@ const Register = (props: Props) => {
             [property]: value,
         })
     }
+    const handleFormSubmit = () => {
+        axios.post('http://localhost:4000/signup', userData)
 
+    }
     return (
         <div className='register-container'>
 
-            <form>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                handleFormSubmit()
+
+            }}>
                 <h1>Register</h1>
                 <label>username:
                     <input onChange={(e) => { handleUserDataChange(e.currentTarget.value, "username") }} value={userData.username} type="text" name='username' placeholder='enter your username here' />
