@@ -23,11 +23,11 @@ const Login = (props: Props) => {
                 <h1>Login</h1>
                 <label>
                     Username:
-                    <input onChange={(e) => { handleLoginDataChange(e.target.value, "username") }} type="text" placeholder='enter username here' />
+                    <input onChange={(e) => { handleLoginDataChange(e.target.value, "username") }} value={loginData.username} type="text" placeholder='enter username here' />
                 </label>
                 <label>
                     Password:
-                    <input onChange={(e) => { handleLoginDataChange(e.target.value, "password") }} type='password' placeholder='enter password here' />
+                    <input onChange={(e) => { handleLoginDataChange(e.target.value, "password") }} value={loginData.username} type='password' placeholder='enter password here' />
                 </label>
 
                 <input className='btn-submit' type='submit' value='Login' />

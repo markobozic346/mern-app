@@ -9,12 +9,16 @@ type UserData = {
   username: string;
   password: string;
 };
-
+const securePassword = async (password: string) => {
+  const saltPassword = await bcrypt.genSalt(10);
+  const securedPassword = await bcrypt.hash(password, saltPassword);
+  return securedPassword;
+};
 router.post("/signup", async (req, res) => {
-  //hashing password
+  //creating table model
   const saltPassword = await bcrypt.genSalt(10);
   const securedPassword = await bcrypt.hash(req.body.password, saltPassword);
-  //creating table model
+
   const signupUser = new mongooseModel({
     email: req.body.email,
     username: req.body.username,
@@ -31,4 +35,19 @@ router.post("/signup", async (req, res) => {
     });
 });
 
+type User = {
+  [name: string]: string;
+};
+router.post("/login", (req, res) => {
+  mongooseModel.findOne(req.body.username, (error: string, user: User) => {
+    if (user) {
+      res.send("user is found");
+      bcrypt.compare(req.body.password, user.password, (err, result) => {
+        res.send(result);
+      });
+    } else {
+      res.send("user not found");
+    }
+  });
+});
 export default router;

@@ -1,8 +1,16 @@
-POST http://localhost:4000/signup
-Content-Type: application/json
+#  POST http://localhost:4000/signup
+#  Content-Type: application/json
 
-{
-    "email": "fdsf",
-    "username": "gfdfgd",
-    "password": "gfdgg"
-}
+#  {
+#      "email": "marko123@gmail.com",
+#      "username": "marko123",
+#      "password": "marko123"
+#  }
+
+ POST http://localhost:4000/login
+ Content-Type: application/json
+
+ {
+     "username":"marko123",
+     "password": "marko123"
+ }
