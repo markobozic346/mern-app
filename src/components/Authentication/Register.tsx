@@ -14,6 +14,7 @@ const Register = (props: Props) => {
     })
 
     const handleUserDataChange = (value: string, property: string) => {
+
         setUserData({
             ...userData,
             [property]: value,
@@ -23,6 +24,8 @@ const Register = (props: Props) => {
         axios.post('http://localhost:4000/signup', userData)
 
     }
+
+
     return (
         <div className='register-container'>
 
