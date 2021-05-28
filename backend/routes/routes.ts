@@ -1,9 +1,26 @@
 import express from "express";
-
+import User from "../models/User";
 const router = express.Router();
 
-router.post("/register", (req, res) => {
-  res.send("register");
+router.post("/register", async (req, res) => {
+  const { username, email, password } = req.body;
+  // creating new user in database
+  try {
+    const user = await User.create({
+      username,
+      email,
+      password,
+    });
+    res.status(201).json({
+      success: true,
+      user,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: err.message,
+    });
+  }
 });
 router.post("/login", (req, res) => {
   res.send("login route");
