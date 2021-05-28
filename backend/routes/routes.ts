@@ -2,7 +2,7 @@ import express from "express";
 import User from "../models/User";
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
+router.post("/register", async (req, res, next) => {
   const { username, email, password } = req.body;
   // creating new user in database
   try {
