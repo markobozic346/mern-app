@@ -3,17 +3,16 @@ import express from "express";
 const router = express.Router();
 
 router.post("/register", (req, res) => {
-  console.log("register route");
+  res.send("register");
 });
-
 router.post("/login", (req, res) => {
-  console.log("login route");
+  res.send("login route");
 });
 router.post("/forgotpassword", (req, res) => {
-  console.log("forgot password route");
+  res.send("forgot password route");
 });
 router.post("/resetpassword", (req, res) => {
-  console.log("reset password route");
+  res.send("reset password route");
 });
 
 export default router;
