@@ -8,7 +8,8 @@ router.post("/register", async function (req, res, next) {
     email: "something@gmail.com",
     password: "something",
   };
-  //req.body
+  // = req.body instead of ^
+
   // creating new user in database
   try {
     const user = await User.create({
