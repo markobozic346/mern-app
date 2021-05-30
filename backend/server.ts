@@ -6,7 +6,7 @@ dotenv.config({
 });
 
 const app = express();
-app.use("/", routes);
+app.use("/app", routes);
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => console.log(`Sever running on port ${PORT}`));

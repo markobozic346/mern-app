@@ -32,7 +32,9 @@ userSchema.pre("save", async function (next) {
   }
   //hashing password directly to input field
   const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+  const pass = this.get("password");
+  this.set("password", bcrypt.hashSync(pass, salt));
+  console.log(this);
   next();
 });
 const User = mongoose.model("User", userSchema);
