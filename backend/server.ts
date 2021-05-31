@@ -11,4 +11,11 @@ const app = express();
 app.use("/app", routes);
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, () => console.log(`Sever running on port ${PORT}`));
+const server = app.listen(PORT, () =>
+  console.log(`Sever running on port ${PORT}`)
+);
+
+process.on("unhandledRejection", (err, promise) => {
+  console.log(`something went wrong, erro: ${err}`);
+  server.close(() => process.exit(1));
+});
