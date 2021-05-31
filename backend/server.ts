@@ -1,7 +1,4 @@
-import dotenv from "dotenv";
-dotenv.config({
-  path: "./config.env",
-});
+import endpointsConfig from "./endpoints.config";
 import express from "express";
 import routes from "./routes/routes";
 import connectDB from "./config/db";
@@ -9,7 +6,7 @@ import connectDB from "./config/db";
 const db = connectDB();
 const app = express();
 app.use("/app", routes);
-const PORT = process.env.PORT || 4000;
+const PORT = endpointsConfig.port;
 
 const server = app.listen(PORT, () =>
   console.log(`Sever running on port ${PORT}`)

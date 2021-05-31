@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-
+import endpointsConfig from "../endpoints.config";
 const connectDB = async () => {
-  await mongoose.connect(process.env.DB_CONNECT, {
+  await mongoose.connect(endpointsConfig.dbConnect, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
